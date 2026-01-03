@@ -73,7 +73,6 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Make anchors not hide behind sticky header */
     section, footer { scroll-margin-top: 96px; }
 
     body::before{
@@ -241,6 +240,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      min-width: 0;
     }
     .logo img{ height: 52px; width:auto; }
 
@@ -248,6 +248,8 @@
       display:flex;
       gap: 10px;
       align-items:center;
+      flex: 0 0 auto;
+      min-width: 0;
     }
 
     .btn{
@@ -271,6 +273,7 @@
       outline:none;
       white-space: nowrap;
       min-height: var(--tap);
+      min-width: 0;
     }
     .btn svg{ width:18px; height:18px; }
     .btn:hover{
@@ -331,6 +334,7 @@
       align-items:center;
       justify-content:center;
       transition: transform .18s ease, background .18s ease;
+      flex: 0 0 auto;
     }
     .nav-toggle:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
     .nav-toggle svg{ width: 20px; height: 20px; }
@@ -398,16 +402,22 @@
       letter-spacing: .12em;
       font-size: 12px;
       width: fit-content;
+      white-space: nowrap;        /* ✅ всегда в одну строку */
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;    /* если совсем не влезает — аккуратно, без некрасивых переносов */
     }
     .dot{
       width:10px; height:10px; border-radius:999px;
       background: radial-gradient(circle at 30% 30%, var(--cyan), var(--blue));
       box-shadow: 0 0 0 6px rgba(41,241,255,.12);
+      flex: 0 0 auto;
     }
     .hero-title{
-      margin: 16px 0 12px;
-      line-height: 1.06;
+      margin: 16px 0 14px;
+      line-height: 1.10;
       font-size: clamp(34px, 4.8vw, 64px);
+      padding-top: 6px; /* ✅ чтобы градиент/тени не подрезались сверху внутри overflow */
     }
     .hero-title .blue{
       background: linear-gradient(90deg, var(--blue2), var(--cyan));
@@ -415,32 +425,32 @@
       background-clip:text;
       color: transparent;
       text-shadow: 0 0 30px rgba(41,241,255,.12);
+      display:inline-block;
+      padding-top: 2px; /* ✅ анти-обрезание на некоторых мобилах */
     }
     .hero-title .casino{
-      margin-left: 0;
+      margin-left: 0; /* ✅ без отступа по умолчанию */
       opacity: .95;
       filter: drop-shadow(0 12px 28px rgba(41,241,255,.10));
     }
+
+    /* ✅ Новый, более понятный заголовок/подзаголовок без описания */
     .hero-subtitle{
-      display:inline-block;
-      margin-top: 10px;
-      font-size: clamp(20px, 3.0vw, 38px);
-      line-height: 1.03;
+      display:block;
+      margin-top: 14px;
+      font-size: clamp(22px, 3.0vw, 40px);
+      line-height: 1.05;
       letter-spacing: .01em;
       color: rgba(246,247,255,.92);
+      text-transform: uppercase;
     }
-    .hero-lead{
-      margin: 0 0 22px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      max-width: 56ch;
-    }
+
     .hero-actions{
       display:flex;
       gap: 14px;
       flex-wrap:wrap;
       align-items:center;
+      margin-top: 18px;
     }
 
     .hero-panel{
@@ -796,6 +806,7 @@
       background-clip:text;
       color: transparent;
       text-shadow: 0 0 30px rgba(41,241,255,.12);
+      white-space: nowrap; /* ✅ FS не переносится */
     }
     .bonus-sub{
       color: var(--muted);
@@ -878,7 +889,7 @@
       z-index:1;
     }
 
-    /* ===== Footer (like screenshot) ===== */
+    /* ===== Footer ===== */
     .footer{
       padding: 60px 0 34px;
       background: rgba(0,0,0,.22);
@@ -924,6 +935,7 @@
       min-height: var(--tap);
       display:flex;
       align-items:center;
+      white-space: nowrap; /* ✅ VIP-КАЗИНО и тд не разваливается */
     }
     .footer-menu a:hover{
       transform: translateY(-1px);
@@ -1083,7 +1095,6 @@
     }
 
     /* ===== Responsive ===== */
-
     @media (max-width: 980px){
       .nav-list{ display:none; }
       .nav-toggle{ display:inline-flex; }
@@ -1101,33 +1112,59 @@
     @media (max-width: 560px){
       .container{ padding: 0 14px; }
 
-      /* reduce heavy effects on phones a bit */
       body::before{ filter: blur(10px) saturate(1.02); opacity:.30; }
       .aurora{ filter: blur(34px); opacity:.60; }
 
       .site-header{ top: 10px; padding: 8px 0; }
       section, footer { scroll-margin-top: 88px; }
 
+      /* ✅ Шапка — чтобы не "съезжала" */
       .main-nav{
-        width: calc(100% - 18px);
+        width: calc(100% - 14px);
         padding: 10px 10px;
-        gap: 10px;
+        gap: 8px;
       }
-      .logo img{ height: 46px; }
-      .btn{ width: auto; padding: 12px 14px; }
+      .logo{ padding: 0 2px; }
+      .logo img{ height: 42px; } /* меньше, чтобы всё влезло */
+      .nav-toggle{ width: 42px; height: 42px; }
+      .nav-cta{ gap: 8px; }
+      .nav-cta .btn{
+        padding: 10px 12px;
+        font-size: 12px;
+        letter-spacing: .08em;
+      }
       .nav-cta .btn svg{ display:none; } /* на маленьких — чище */
 
-      .hero{ padding: 34px 0 10px; }
-      .hero-grid{ padding: 18px; gap: 16px; }
-      .kicker{ font-size: 11px; letter-spacing: .10em; padding: 8px 12px; }
-      .hero-title{ margin: 12px 0 10px; }
-      .hero-title .casino{ margin-left: 8px; }
-      .hero-subtitle{
-        font-size: 24px;     /* именно как ты просил: меньше */
-        line-height: 1.05;
+      .hero{ padding: 30px 0 10px; }
+      .hero-grid{
+        padding: 18px;
+        gap: 16px;
+        padding-top: 22px; /* ✅ добавили воздуха сверху — больше ничего не режется */
       }
-      .hero-lead{ font-size: 14px; margin-bottom: 16px; }
-      .hero-actions{ gap: 10px; }
+
+      /* ✅ Кикер в одну строку и аккуратно */
+      .kicker{
+        font-size: 11px;
+        letter-spacing: .08em;
+        padding: 8px 12px;
+        max-width: 100%;
+      }
+
+      /* ✅ Заголовок без странных отступов у CASINO */
+      .hero-title{
+        margin: 12px 0 10px;
+        line-height: 1.08;
+      }
+      .hero-title .casino{ margin-left: 0; } /* важно */
+
+      /* ✅ Убрали описание (его нет в HTML), делаем красивый блок заголовков */
+      .hero-subtitle{
+        font-size: 26px;
+        line-height: 1.05;
+        margin-top: 16px;
+      }
+
+      .hero-actions{ gap: 10px; margin-top: 16px; }
       .hero-actions .btn{ width: 100%; }
 
       .hero-panel{ padding: 16px; border-radius: 20px; }
@@ -1150,28 +1187,47 @@
       .games-top p{ font-size: 13px; }
       .track{ padding: 10px 12px; gap: 12px; }
       .game-card{
-        width: clamp(230px, 78vw, 320px); /* реально удобно для мобилы */
+        width: clamp(230px, 78vw, 320px);
         border-radius: 22px;
       }
       .game-label{ left: 12px; right: 12px; bottom: 12px; }
       .pill{ font-size: 11px; padding: 8px 10px; }
 
-      .bonus-grid{ grid-template-columns: 1fr; }
-      .bonus-card{ min-height: 220px; border-radius: 20px; }
-      .bonus-inner{ padding: 18px 14px; }
-      .bonus-amount{ font-size: 30px; }
-      .bonus-title{ font-size: 20px; }
+      /* ✅ Бонусы: 2 в ряд на телефоне */
+      .bonus-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+      .bonus-card{ min-height: 200px; border-radius: 20px; }
+      .bonus-inner{ padding: 16px 12px; gap: 10px; }
+      .bonus-title{ font-size: 18px; }
+      .bonus-amount{
+        font-size: 26px;     /* чтобы “до 360% + 50 FS” влезало одной строкой */
+        letter-spacing: .02em;
+        white-space: nowrap; /* ✅ FS не переносится */
+      }
+      .bonus-sub{ font-size: 12px; max-width: 30ch; }
       .bonus-actions .btn{ width: 100%; }
 
       .features-grid{ grid-template-columns: 1fr; }
       .feature-card{ border-radius: 20px; padding: 18px; }
 
+      /* ✅ Подвал: меню в одну строку (без некрасивых переносов) */
       .footer{ padding: 44px 0 26px; }
-      .footer-menu{ gap: 14px; }
-      .footer-menu a{ padding: 10px 10px; }
+      .footer-menu{
+        gap: 12px;
+        flex-wrap: nowrap;     /* держим в одну строку */
+        overflow-x: auto;      /* если совсем тесно — горизонтальный скролл, но красиво */
+        -webkit-overflow-scrolling: touch;
+        padding: 0 6px;
+        max-width: 100%;
+      }
+      .footer-menu::-webkit-scrollbar{ display:none; }
+      .footer-menu a{
+        font-size: 11px;
+        padding: 10px 10px;
+        white-space: nowrap;
+        flex: 0 0 auto;
+      }
       .footer-seo-block{ font-size: 12px; text-align: left; }
 
-      /* Modal on small phones */
       .modal{ border-radius: 22px; }
       .modal-inner{ padding: 22px 16px 18px; }
       .modal-logo{ height: 52px; }
@@ -1223,14 +1279,8 @@
         </button>
 
         <div class="nav-cta">
-          <a class="btn" href="https://t.me/A_AstraAgent_Bot/app?startapp=bXN0PTB4MzlkNGYwNmEmbT1JTElBJmM9c2VvYmVhcg" rel="nofollow">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21.7 4.3 2.9 11.6c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.5-1.7-1.2-1.3Z" stroke="currentColor" stroke-width="1.5"/></svg>
-            TG
-          </a>
-          <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5V7.4c0-1 .8-1.9 1.9-1.9h12.2c1 0 1.9.8 1.9 1.9v9.2c0 1-.8 1.9-1.9 1.9H8.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M4 12.5h7.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Играть
-          </a>
+          <a class="btn" href="https://t.me/A_AstraAgent_Bot/app?startapp=bXN0PTB4MzlkNGYwNmEmbT1JTElBJmM9c2VvYmVhcg" rel="nofollow">TG</a>
+          <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Играть</a>
         </div>
 
         <!-- Mobile dropdown links -->
@@ -1252,15 +1302,12 @@
             <div>
               <div class="kicker"><span class="dot" aria-hidden="true"></span> бонусы + фриспины • вход за 1 минуту</div>
 
+              <!-- ✅ Без описания. Заголовок + подзаголовок распределены аккуратнее -->
               <h1 class="hero-title">
-                <span class="blue">LUCKY BEAR</span>
-                <span class="blue casino">CASINO🧸</span><br/>
+                <span class="blue">LUCKY BEAR</span><br/>
+                <span class="blue casino">CASINO</span>
                 <span class="hero-subtitle">твоя берлога<br/>крупных выигрышей</span>
               </h1>
-
-              <p class="hero-lead">
-                Удобный интерфейс, быстрые выплаты и доступ в один клик. Забирай бонусы и выбирай где играть — на сайте либо прямо в Telegram.
-              </p>
 
               <div class="hero-actions">
                 <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Забрать бонус</a>
@@ -1456,7 +1503,7 @@
       <button class="modal-close" type="button" aria-label="Закрыть" data-close-modal>✕</button>
       <div class="modal-inner">
         <img class="modal-logo" src="images/logo-full.png" alt="Lucky Bear Logo">
-        <h2 class="modal-title" id="promoTitle">Вам доступно 80 <span> фриспинов</span></h2>
+        <h2 class="modal-title" id="promoTitle">Вам доступно <span> 80 <span> фриспинов</span></h2>
         <p class="modal-sub">Нажми «Забрать», чтобы перейти на страницу активации бонуса.</p>
         <div class="modal-actions">
           <a class="btn btn-primary btn-shine" id="claimBtn" href="https://lbgame777.xyz/0xsfvT">Забрать</a>
@@ -1482,7 +1529,6 @@
         a.addEventListener('click', () => nav.classList.remove('is-open'));
       });
 
-      // close on outside tap (mobile)
       document.addEventListener('click', (e)=>{
         if(!nav.classList.contains('is-open')) return;
         if(nav.contains(e.target)) return;
@@ -1678,7 +1724,6 @@
         }
       }
 
-      // Drag / swipe
       let isDown = false;
       let startX = 0;
       let startScroll = 0;
