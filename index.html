@@ -55,7 +55,6 @@
 
       --container: 1200px;
 
-      /* useful for mobile tap targets */
       --tap: 44px;
     }
 
@@ -222,6 +221,7 @@
       border-radius: 999px;
       transition: transform .2s ease, background .2s ease, color .2s ease;
       outline:none;
+      white-space: nowrap;
     }
     .nav-list a:hover{
       color: var(--text);
@@ -240,7 +240,6 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      min-width: 0;
     }
     .logo img{ height: 52px; width:auto; }
 
@@ -249,7 +248,6 @@
       gap: 10px;
       align-items:center;
       flex: 0 0 auto;
-      min-width: 0;
     }
 
     .btn{
@@ -275,7 +273,7 @@
       min-height: var(--tap);
       min-width: 0;
     }
-    .btn svg{ width:18px; height:18px; }
+    .btn svg{ width:18px; height:18px; flex: 0 0 auto; }
     .btn:hover{
       transform: translateY(-2px);
       border-color: rgba(255,255,255,.22);
@@ -321,6 +319,27 @@
       100%{ transform: translateX(55%) rotate(10deg); opacity: 0; }
     }
 
+    /* Icon-only gift button */
+    .btn-icon{
+      width: 54px;
+      height: 54px;
+      padding: 0;
+      border-radius: 999px;
+      display:inline-grid;
+      place-items:center;
+      gap: 0;
+    }
+    .btn-icon svg{ width: 22px; height: 22px; }
+    .btn-gift{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+      box-shadow: 0 16px 50px rgba(0,0,0,.25);
+    }
+    .btn-gift:hover{
+      border-color: rgba(41,241,255,.25);
+      box-shadow: 0 26px 80px rgba(41,241,255,.10), 0 18px 50px rgba(0,0,0,.30);
+    }
+
     /* Mobile menu button */
     .nav-toggle{
       display:none;
@@ -339,7 +358,6 @@
     .nav-toggle:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
     .nav-toggle svg{ width: 20px; height: 20px; }
 
-    /* Mobile dropdown inside nav */
     .mobile-menu{
       display:none;
       width: 100%;
@@ -389,6 +407,8 @@
       align-items:center;
       padding: clamp(22px, 4vw, 48px);
     }
+
+    /* Kicker: one line, no ugly wrap */
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -399,13 +419,13 @@
       border: 1px solid rgba(255,255,255,.10);
       color: rgba(246,247,255,.78);
       text-transform: uppercase;
-      letter-spacing: .12em;
+      letter-spacing: .10em;
       font-size: 12px;
       width: fit-content;
-      white-space: nowrap;        /* ✅ всегда в одну строку */
       max-width: 100%;
+      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;    /* если совсем не влезает — аккуратно, без некрасивых переносов */
+      text-overflow: ellipsis;
     }
     .dot{
       width:10px; height:10px; border-radius:999px;
@@ -413,11 +433,11 @@
       box-shadow: 0 0 0 6px rgba(41,241,255,.12);
       flex: 0 0 auto;
     }
+
     .hero-title{
-      margin: 16px 0 14px;
-      line-height: 1.10;
+      margin: 16px 0 12px;
+      line-height: 1.06;
       font-size: clamp(34px, 4.8vw, 64px);
-      padding-top: 6px; /* ✅ чтобы градиент/тени не подрезались сверху внутри overflow */
     }
     .hero-title .blue{
       background: linear-gradient(90deg, var(--blue2), var(--cyan));
@@ -425,32 +445,33 @@
       background-clip:text;
       color: transparent;
       text-shadow: 0 0 30px rgba(41,241,255,.12);
-      display:inline-block;
-      padding-top: 2px; /* ✅ анти-обрезание на некоторых мобилах */
+      display: inline-block; /* чтобы градиент не "обрезался" странно */
+      padding-top: 2px;      /* убирает ощущение "среза" сверху на мобиле */
     }
     .hero-title .casino{
-      margin-left: 0; /* ✅ без отступа по умолчанию */
+      margin-left: 0;        /* ВАЖНО: без отступа слева у CASINO */
       opacity: .95;
       filter: drop-shadow(0 12px 28px rgba(41,241,255,.10));
+      display: inline-block;
+      padding-top: 2px;      /* фикс среза градиента */
     }
 
-    /* ✅ Новый, более понятный заголовок/подзаголовок без описания */
     .hero-subtitle{
       display:block;
       margin-top: 14px;
-      font-size: clamp(22px, 3.0vw, 40px);
-      line-height: 1.05;
+      font-size: clamp(20px, 3.0vw, 38px);
+      line-height: 1.03;
       letter-spacing: .01em;
       color: rgba(246,247,255,.92);
-      text-transform: uppercase;
     }
 
+    /* Buttons lower + nicer spacing (PC) */
     .hero-actions{
       display:flex;
       gap: 14px;
       flex-wrap:wrap;
       align-items:center;
-      margin-top: 18px;
+      margin-top: 26px; /* <-- сделал ниже, чтобы не липло к заголовку */
     }
 
     .hero-panel{
@@ -797,6 +818,8 @@
     .bonus-card:hover .bonus-icon img{ transform: rotate(-6deg) scale(1.06); }
 
     .bonus-title{ font-size: 22px; letter-spacing: .06em; }
+
+    /* ВАЖНО: FS не режем и не переносим как попало */
     .bonus-amount{
       font-family: var(--font-h);
       font-size: 34px;
@@ -806,8 +829,9 @@
       background-clip:text;
       color: transparent;
       text-shadow: 0 0 30px rgba(41,241,255,.12);
-      white-space: nowrap; /* ✅ FS не переносится */
+      white-space: nowrap;
     }
+
     .bonus-sub{
       color: var(--muted);
       font-size: 14px;
@@ -935,7 +959,7 @@
       min-height: var(--tap);
       display:flex;
       align-items:center;
-      white-space: nowrap; /* ✅ VIP-КАЗИНО и тд не разваливается */
+      white-space: nowrap;
     }
     .footer-menu a:hover{
       transform: translateY(-1px);
@@ -1118,54 +1142,67 @@
       .site-header{ top: 10px; padding: 8px 0; }
       section, footer { scroll-margin-top: 88px; }
 
-      /* ✅ Шапка — чтобы не "съезжала" */
+      /* Header: чтобы ничего не обрезалось */
       .main-nav{
-        width: calc(100% - 14px);
+        width: calc(100% - 18px);
         padding: 10px 10px;
         gap: 8px;
       }
-      .logo{ padding: 0 2px; }
-      .logo img{ height: 42px; } /* меньше, чтобы всё влезло */
-      .nav-toggle{ width: 42px; height: 42px; }
-      .nav-cta{ gap: 8px; }
-      .nav-cta .btn{
+      .logo{ padding: 0 6px; }
+      .logo img{ height: 38px; }          /* уменьшаем лого */
+      .nav-toggle{
+        width: 40px;
+        height: 40px;
+      }
+      .nav-cta{
+        gap: 8px;
+      }
+      .btn{
         padding: 10px 12px;
         font-size: 12px;
-        letter-spacing: .08em;
+        letter-spacing: .06em;
+        min-height: 40px;
       }
-      .nav-cta .btn svg{ display:none; } /* на маленьких — чище */
+      .nav-cta .btn svg{ display:none; }
 
-      .hero{ padding: 30px 0 10px; }
-      .hero-grid{
-        padding: 18px;
-        gap: 16px;
-        padding-top: 22px; /* ✅ добавили воздуха сверху — больше ничего не режется */
-      }
+      .hero{ padding: 34px 0 10px; }
+      .hero-grid{ padding: 18px; gap: 16px; }
 
-      /* ✅ Кикер в одну строку и аккуратно */
       .kicker{
-        font-size: 11px;
+        font-size: 10px;
         letter-spacing: .08em;
-        padding: 8px 12px;
+        padding: 8px 10px;
         max-width: 100%;
       }
 
-      /* ✅ Заголовок без странных отступов у CASINO */
+      /* Заголовок: меньше, чтобы не уезжал вбок */
       .hero-title{
         margin: 12px 0 10px;
-        line-height: 1.08;
+        font-size: 40px;
+        line-height: 1.02;
       }
-      .hero-title .casino{ margin-left: 0; } /* важно */
-
-      /* ✅ Убрали описание (его нет в HTML), делаем красивый блок заголовков */
+      .hero-title .casino{ margin-left: 0; } /* без отступа */
       .hero-subtitle{
-        font-size: 26px;
+        margin-top: 12px;
+        font-size: 24px;
         line-height: 1.05;
-        margin-top: 16px;
       }
 
-      .hero-actions{ gap: 10px; margin-top: 16px; }
-      .hero-actions .btn{ width: 100%; }
+      /* Actions on mobile: большая кнопка + круглый подарок справа */
+      .hero-actions{
+        margin-top: 18px;
+        gap: 12px;
+        flex-wrap: nowrap;
+      }
+      .hero-actions .btn-primary{
+        flex: 1 1 auto;
+        width: auto;
+      }
+      .hero-actions .btn-icon{
+        flex: 0 0 auto;
+        width: 46px;
+        height: 46px;
+      }
 
       .hero-panel{ padding: 16px; border-radius: 20px; }
       .panel-title{ font-size: 16px; }
@@ -1193,38 +1230,31 @@
       .game-label{ left: 12px; right: 12px; bottom: 12px; }
       .pill{ font-size: 11px; padding: 8px 10px; }
 
-      /* ✅ Бонусы: 2 в ряд на телефоне */
-      .bonus-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-      .bonus-card{ min-height: 200px; border-radius: 20px; }
-      .bonus-inner{ padding: 16px 12px; gap: 10px; }
-      .bonus-title{ font-size: 18px; }
+      /* Бонусы: как ты просил — обратно по одной в ряд */
+      .bonus-grid{ grid-template-columns: 1fr; }
+      .bonus-card{ min-height: 220px; border-radius: 20px; }
+      .bonus-inner{ padding: 18px 14px; }
       .bonus-amount{
-        font-size: 26px;     /* чтобы “до 360% + 50 FS” влезало одной строкой */
-        letter-spacing: .02em;
-        white-space: nowrap; /* ✅ FS не переносится */
+        font-size: 30px;     /* чтобы FS/числа не резались */
+        white-space: nowrap; /* и в одну строку */
       }
-      .bonus-sub{ font-size: 12px; max-width: 30ch; }
+      .bonus-title{ font-size: 20px; }
       .bonus-actions .btn{ width: 100%; }
 
       .features-grid{ grid-template-columns: 1fr; }
       .feature-card{ border-radius: 20px; padding: 18px; }
 
-      /* ✅ Подвал: меню в одну строку (без некрасивых переносов) */
+      /* Footer menu: меньше и без обрезки */
       .footer{ padding: 44px 0 26px; }
       .footer-menu{
-        gap: 12px;
-        flex-wrap: nowrap;     /* держим в одну строку */
-        overflow-x: auto;      /* если совсем тесно — горизонтальный скролл, но красиво */
-        -webkit-overflow-scrolling: touch;
-        padding: 0 6px;
+        gap: 10px;
+        flex-wrap: nowrap;           /* хотим в одну строку */
         max-width: 100%;
       }
-      .footer-menu::-webkit-scrollbar{ display:none; }
       .footer-menu a{
-        font-size: 11px;
-        padding: 10px 10px;
-        white-space: nowrap;
-        flex: 0 0 auto;
+        font-size: 10px;
+        letter-spacing: .08em;
+        padding: 8px 6px;
       }
       .footer-seo-block{ font-size: 12px; text-align: left; }
 
@@ -1269,7 +1299,6 @@
           <li><a href="#about" data-link>О нас</a></li>
         </ul>
 
-        <!-- Mobile toggle -->
         <button class="nav-toggle" type="button" aria-label="Открыть меню" id="navToggle">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -1283,7 +1312,6 @@
           <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Играть</a>
         </div>
 
-        <!-- Mobile dropdown links -->
         <div class="mobile-menu" id="mobileMenu" aria-label="Мобильное меню">
           <a href="#games">Игры</a>
           <a href="#bonuses">Бонусы</a>
@@ -1302,7 +1330,6 @@
             <div>
               <div class="kicker"><span class="dot" aria-hidden="true"></span> бонусы + фриспины • вход за 1 минуту</div>
 
-              <!-- ✅ Без описания. Заголовок + подзаголовок распределены аккуратнее -->
               <h1 class="hero-title">
                 <span class="blue">LUCKY BEAR</span><br/>
                 <span class="blue casino">CASINO</span>
@@ -1311,7 +1338,20 @@
 
               <div class="hero-actions">
                 <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Забрать бонус</a>
-                <button class="btn" type="button" data-open-modal>Показать подарок</button>
+
+                <!-- вместо второй обычной кнопки — круглый подарок -->
+                <button class="btn btn-icon btn-gift" type="button" data-open-modal aria-label="Показать подарок" title="Показать подарок">
+                  <!-- gift icon -->
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 12v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M12 12v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M4 7h16a1 1 0 0 1 1 1v4H3V8a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M12 7h0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M12 7c-2.2 0-4-1-4-2.5S9 2 10.7 2C12 2 12.7 3 13 3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M12 7c2.2 0 4-1 4-2.5S15 2 13.3 2C12 2 11.3 3 11 3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </button>
               </div>
             </div>
 
@@ -1430,7 +1470,6 @@
     <section class="section" id="features">
       <div class="container">
         <h2 class="section-title reveal">Почему игроки <span class="accent">выбирают</span> нас</h2>
-        <p class="section-subtitle reveal"></p>
 
         <div class="features-grid">
           <article class="feature-card reveal">
@@ -1724,6 +1763,7 @@
         }
       }
 
+      // Drag / swipe
       let isDown = false;
       let startX = 0;
       let startScroll = 0;
