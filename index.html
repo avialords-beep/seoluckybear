@@ -54,6 +54,8 @@
       --font-b: 'FindSansPro', system-ui, sans-serif;
 
       --container: 1200px;
+
+      /* useful for mobile tap targets */
       --tap: 44px;
     }
 
@@ -189,7 +191,6 @@
       backdrop-filter: blur(16px);
       position:relative;
       overflow:hidden;
-      min-width: 0;
     }
     .main-nav::before{
       content:"";
@@ -208,7 +209,6 @@
       gap: 12px;
       align-items:center;
       flex: 1;
-      min-width: 0;
     }
     .nav-left{ justify-content:flex-end; }
     .nav-right{ justify-content:flex-start; }
@@ -222,7 +222,6 @@
       border-radius: 999px;
       transition: transform .2s ease, background .2s ease, color .2s ease;
       outline:none;
-      white-space: nowrap;
     }
     .nav-list a:hover{
       color: var(--text);
@@ -249,7 +248,6 @@
       display:flex;
       gap: 10px;
       align-items:center;
-      min-width: 0;
       flex: 0 0 auto;
     }
 
@@ -274,7 +272,7 @@
       outline:none;
       white-space: nowrap;
       min-height: var(--tap);
-      min-width: 0;
+      flex: 0 0 auto;
     }
     .btn svg{ width:18px; height:18px; }
     .btn:hover{
@@ -290,27 +288,6 @@
     }
     .btn-primary:hover{
       box-shadow: 0 30px 80px rgba(43,134,240,.30);
-    }
-
-    /* Icon-only button (gift) */
-    .btn-icon{
-      width: 52px;
-      height: 52px;
-      padding: 0;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
-      background: rgba(0,0,0,.16);
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 18px 55px rgba(0,0,0,.28);
-    }
-    .btn-icon svg{ width: 22px; height: 22px; }
-    .sr-only{
-      position:absolute !important;
-      width:1px; height:1px;
-      padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0);
-      white-space:nowrap; border:0;
     }
 
     /* Premium shine CTA */
@@ -343,6 +320,7 @@
       100%{ transform: translateX(55%) rotate(10deg); opacity: 0; }
     }
 
+    /* Mobile menu button */
     .nav-toggle{
       display:none;
       width: var(--tap);
@@ -360,6 +338,7 @@
     .nav-toggle:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
     .nav-toggle svg{ width: 20px; height: 20px; }
 
+    /* Mobile dropdown inside nav */
     .mobile-menu{
       display:none;
       width: 100%;
@@ -411,6 +390,8 @@
       padding: clamp(22px, 4vw, 48px);
       min-width: 0;
     }
+    .hero-grid > *{ min-width: 0; } /* важно: чтобы ничего не “выталкивало” сетку */
+
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -424,10 +405,7 @@
       letter-spacing: .12em;
       font-size: 12px;
       width: fit-content;
-
-      white-space: nowrap; /* важно: в одну строку */
       max-width: 100%;
-      overflow: hidden;
     }
     .dot{
       width:10px; height:10px; border-radius:999px;
@@ -447,11 +425,14 @@
       background-clip:text;
       color: transparent;
       text-shadow: 0 0 30px rgba(41,241,255,.12);
+      display:inline-block;
+      max-width: 100%;
     }
     .hero-title .casino{
       margin-left: 10px;
       opacity: .95;
       filter: drop-shadow(0 12px 28px rgba(41,241,255,.10));
+      display:inline-block;
     }
     .hero-subtitle{
       display:inline-block;
@@ -460,22 +441,31 @@
       line-height: 1.03;
       letter-spacing: .01em;
       color: rgba(246,247,255,.92);
+      max-width: 100%;
     }
 
-    /* Убрали описание — оставляем место для красивого интервала */
-    .hero-lead{
-      display:none;
-    }
-
+    /* кнопки опускаем чуть ниже от заголовка */
     .hero-actions{
       display:flex;
       gap: 14px;
       flex-wrap:wrap;
       align-items:center;
-
-      /* ✅ сделаем ниже, чтобы не слипалось с подзаголовком */
-      margin-top: 22px;
+      margin-top: 18px; /* ✅ красивый интервал */
+      max-width: 100%;
     }
+
+    /* кнопка-подарок (круглая) */
+    .btn-icon{
+      width: 54px;
+      height: 54px;
+      padding: 0;
+      min-width: 54px;
+      min-height: 54px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+    }
+    .btn-icon svg{ width: 22px; height: 22px; }
 
     .hero-panel{
       border-radius: 24px;
@@ -484,7 +474,7 @@
       border: 1px solid rgba(255,255,255,.10);
       backdrop-filter: blur(16px);
       box-shadow: 0 22px 60px rgba(0,0,0,.35);
-      min-width: 0;
+      max-width: 100%;
     }
     .panel-title{
       font-family: var(--font-h);
@@ -527,7 +517,7 @@
       font-size: 20px;
       letter-spacing:.04em;
       font-family: var(--font-h);
-      white-space: nowrap;
+      word-break: keep-all;
     }
     .stat span{
       display:block;
@@ -757,7 +747,6 @@
       will-change: transform;
       transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       min-height: 240px;
-      min-width: 0;
     }
     .bonus-card:hover{
       border-color: rgba(43,134,240,.35);
@@ -816,7 +805,6 @@
       box-shadow: 0 18px 40px rgba(0,0,0,.35);
       position:relative;
       overflow:hidden;
-      flex: 0 0 auto;
     }
     .bonus-icon img{
       width: 44px; height: 44px;
@@ -830,23 +818,19 @@
     .bonus-amount{
       font-family: var(--font-h);
       font-size: 34px;
-      line-height:1.05;
+      line-height:1;
       background: linear-gradient(90deg, var(--blue2), var(--cyan));
       -webkit-background-clip:text;
       background-clip:text;
       color: transparent;
       text-shadow: 0 0 30px rgba(41,241,255,.12);
-      max-width: 100%;
-      word-break: keep-all;
-    }
-
-    /* ✅ Общая правка: перенос "+ FS" на следующую строку (3 и 4 бонус) */
-    .bonus-amount .plusline{
       display:block;
-      margin-top: 6px;
-      white-space: nowrap;
+      max-width: 100%;
     }
-
+    .bonus-amount .bonus-plusline{
+      display:block;              /* ✅ перенос на новую строку */
+      margin-top: 6px;
+    }
     .bonus-sub{
       color: var(--muted);
       font-size: 14px;
@@ -884,7 +868,6 @@
       transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
       position:relative;
       overflow:hidden;
-      min-width: 0;
     }
     .feature-card::before{
       content:"";
@@ -907,7 +890,7 @@
       margin-bottom: 12px;
       position:relative;
       z-index:1;
-      min-width: 0;
+      min-width:0;
     }
     .ic{
       width: 44px;
@@ -960,11 +943,9 @@
     .footer-menu{
       display: flex;
       gap: 28px;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 18px;
-      width: 100%;
-      max-width: 980px;
     }
     .footer-menu a{
       font-family: var(--font-h);
@@ -1138,6 +1119,7 @@
     }
 
     /* ===== Responsive ===== */
+
     @media (max-width: 980px){
       .nav-list{ display:none; }
       .nav-toggle{ display:inline-flex; }
@@ -1152,6 +1134,7 @@
       .section{ padding: 56px 0; }
     }
 
+    /* ✅ Мобилка: правки шапки (убираем TG, бургер справа от “Играть”) + фикс андроида */
     @media (max-width: 560px){
       .container{ padding: 0 14px; }
 
@@ -1161,64 +1144,88 @@
       .site-header{ top: 10px; padding: 8px 0; }
       section, footer { scroll-margin-top: 88px; }
 
-      /* ✅ Шапка: чтобы TG + ИГРАТЬ влезали */
       .main-nav{
         width: calc(100% - 18px);
-        padding: 8px 10px;
-        gap: 8px;
+        padding: 10px 10px;
+        gap: 10px;
+        align-items:center;
       }
-      .logo{ padding: 0 4px; }
-      .logo img{ height: 40px; } /* меньше логотип */
-      .nav-cta{ gap: 8px; }
-      .nav-cta .btn{
-        padding: 10px 12px;
-        font-size: 12px;
-        letter-spacing: .08em;
-      }
-      .nav-cta .btn svg{ display:none; } /* чище на мобиле */
 
+      /* ✅ Уменьшаем лого, чтобы влезало */
+      .logo img{ height: 40px; }
+      .logo{ padding: 0 6px; }
+
+      /* ✅ На мобилке убираем TG */
+      .btn-tg{ display:none !important; }
+
+      /* ✅ Играть + бургер всегда справа и не вылезают */
+      .nav-cta{
+        gap: 10px;
+        margin-left: auto;
+      }
+      .nav-cta .btn{
+        padding: 12px 14px;
+        font-size: 12px;
+      }
+
+      /* порядок: лого (слева) -> “Играть” -> бургер (самый правый) */
+      .logo{ order: 1; }
+      .nav-cta{ order: 2; }
+      .nav-toggle{ order: 3; }
+
+      .nav-cta .btn svg{ display:none; } /* чище на мелких */
+
+      /* ===== Hero: фикс “уезжает вправо” на андроиде ===== */
       .hero{ padding: 34px 0 10px; }
       .hero-grid{ padding: 18px; gap: 16px; }
 
-      /* ✅ Кикер строго в одну строку и не вылазит */
+      /* kicker в одну строку */
       .kicker{
-        font-size: 10px;
-        letter-spacing: .06em;
-        padding: 7px 10px;
-        gap: 8px;
-        max-width: 100%;
+        font-size: 11px;
+        letter-spacing: .10em;
+        padding: 8px 12px;
         white-space: nowrap;
         overflow: hidden;
+        text-overflow: ellipsis;
       }
 
-      /* ✅ Первая страница: ничего не вылазит вправо */
-      .hero-title{ margin: 12px 0 8px; }
-      .hero-title .casino{
-        margin-left: 0;     /* убираем отступ */
-        display: block;     /* отдельная строка */
+      .hero-title{
+        margin: 12px 0 10px;
+        font-size: clamp(30px, 10.4vw, 54px); /* ✅ немного “подгон” под разные андроиды */
+        max-width: 100%;
       }
+      /* убираем любой риск смещения/переполнения */
+      .hero-title,
+      .hero-title *{
+        max-width: 100%;
+      }
+      .hero-title .casino{
+        margin-left: 0;          /* ✅ без отступа */
+        display:block;           /* аккуратно и стабильно */
+      }
+
       .hero-subtitle{
         font-size: 24px;
         line-height: 1.05;
-        display:block;
       }
 
-      /* ✅ Кнопки: "Забрать" + круглый подарок справа */
+      /* ✅ кнопки: “Забрать” + круг-подарок справа (и всё влезает) */
       .hero-actions{
         margin-top: 18px;
         gap: 12px;
         flex-wrap: nowrap;
-        align-items: center;
+        width: 100%;
       }
       .hero-actions .btn-primary{
         flex: 1 1 auto;
         width: auto;
         min-width: 0;
       }
-      .hero-actions .btn-icon{
-        flex: 0 0 auto;
+      .btn-icon{
         width: 54px;
         height: 54px;
+        min-width: 54px;
+        min-height: 54px;
       }
 
       .hero-panel{ padding: 16px; border-radius: 20px; }
@@ -1247,24 +1254,22 @@
       .game-label{ left: 12px; right: 12px; bottom: 12px; }
       .pill{ font-size: 11px; padding: 8px 10px; }
 
-      /* ✅ Бонусы на мобиле: вернуть как было — по 1 в ряд */
+      /* ✅ бонусы на мобилке: как ты просил — по одной, и без кривых переносов */
       .bonus-grid{ grid-template-columns: 1fr; }
       .bonus-card{ min-height: 220px; border-radius: 20px; }
       .bonus-inner{ padding: 18px 14px; }
       .bonus-amount{ font-size: 30px; }
-      .bonus-title{ font-size: 20px; }
       .bonus-actions .btn{ width: 100%; }
 
       .features-grid{ grid-template-columns: 1fr; }
       .feature-card{ border-radius: 20px; padding: 18px; }
 
-      /* ✅ Подвал: чтобы пункты влезали (поменьше) */
       .footer{ padding: 44px 0 26px; }
       .footer-menu{ gap: 10px; }
       .footer-menu a{
-        font-size: 10px;
+        font-size: 10px;          /* ✅ чтобы влезало */
         letter-spacing: .10em;
-        padding: 10px 6px;
+        padding: 8px 8px;
       }
       .footer-seo-block{ font-size: 12px; text-align: left; }
 
@@ -1309,16 +1314,9 @@
           <li><a href="#about" data-link>О нас</a></li>
         </ul>
 
-        <button class="nav-toggle" type="button" aria-label="Открыть меню" id="navToggle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="4" y1="7" x2="20" y2="7"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="17" x2="20" y2="17"></line>
-          </svg>
-        </button>
-
+        <!-- CTA (TG + Играть). На мобилке TG скрывается CSS'ом -->
         <div class="nav-cta">
-          <a class="btn" href="https://t.me/A_AstraAgent_Bot/app?startapp=bXN0PTB4MzlkNGYwNmEmbT1JTElBJmM9c2VvYmVhcg" rel="nofollow">
+          <a class="btn btn-tg" href="https://t.me/A_AstraAgent_Bot/app?startapp=bXN0PTB4MzlkNGYwNmEmbT1JTElBJmM9c2VvYmVhcg" rel="nofollow">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21.7 4.3 2.9 11.6c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.5-1.7-1.2-1.3Z" stroke="currentColor" stroke-width="1.5"/></svg>
             TG
           </a>
@@ -1328,6 +1326,16 @@
           </a>
         </div>
 
+        <!-- Mobile toggle (на мобилке будет самым правым) -->
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" id="navToggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+
+        <!-- Mobile dropdown links -->
         <div class="mobile-menu" id="mobileMenu" aria-label="Мобильное меню">
           <a href="#games">Игры</a>
           <a href="#bonuses">Бонусы</a>
@@ -1352,17 +1360,18 @@
                 <span class="hero-subtitle">твоя берлога<br/>крупных выигрышей</span>
               </h1>
 
+              <!-- ✅ Кнопки ниже + “подарок” как круг с иконкой -->
               <div class="hero-actions">
                 <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Забрать бонус</a>
 
-                <!-- ✅ вместо второй обычной кнопки — круглый подарок -->
-                <button class="btn btn-icon" type="button" data-open-modal aria-label="Показать подарок">
-                  <span class="sr-only">Показать подарок</span>
+                <button class="btn btn-icon" type="button" data-open-modal aria-label="Показать подарок" title="Показать подарок">
+                  <!-- gift icon -->
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                    <path d="M2 7h20v5H2V7Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 22V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                    <path d="M12 7c-1.8 0-3-1-3-2.3C9 3.2 10.2 2 12 4c1.8-2 3-0.8 3 0.7C15 6 13.8 7 12 7Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 12v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M12 12v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M3 7h18v5H3V7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M12 7c-1.8 0-3-1-3-2.2C9 3.6 10 3 11.3 3c1.3 0 2.1 1 2.7 2.4.6-1.4 1.4-2.4 2.7-2.4C18 3 19 3.6 19 4.8 19 6 17.8 7 16 7H12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
                   </svg>
                 </button>
               </div>
@@ -1452,6 +1461,7 @@
             </div>
           </article>
 
+          <!-- ✅ 3 бонус: перенос “+ 50 FS” на новую строку -->
           <article class="bonus-card locked reveal" data-tilt>
             <div class="bonus-bg" aria-hidden="true"></div>
             <div class="bonus-inner">
@@ -1459,12 +1469,13 @@
               <div class="bonus-title">Бонус</div>
               <div class="bonus-amount">
                 до 360%
-                <span class="plusline">+ 50 FS</span>
+                <span class="bonus-plusline">+ 50 FS</span>
               </div>
               <div class="bonus-sub">на 3 пополнение</div>
             </div>
           </article>
 
+          <!-- ✅ 4 бонус: перенос “+ 200 FS” на новую строку -->
           <article class="bonus-card locked reveal" data-tilt>
             <div class="bonus-bg" aria-hidden="true"></div>
             <div class="bonus-inner">
@@ -1472,7 +1483,7 @@
               <div class="bonus-title">Бонус</div>
               <div class="bonus-amount">
                 до 360%
-                <span class="plusline">+ 200 FS</span>
+                <span class="bonus-plusline">+ 200 FS</span>
               </div>
               <div class="bonus-sub">на 4 пополнение</div>
             </div>
@@ -1783,6 +1794,7 @@
         }
       }
 
+      // Drag / swipe
       let isDown = false;
       let startX = 0;
       let startScroll = 0;
