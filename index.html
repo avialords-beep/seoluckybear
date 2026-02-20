@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Lucky Bear Casino — Вход | Бонусы до 360% + фриспины</title>
+  <meta name="description" content="Lucky Bear Casino — официальный вход: бонусы до 360% на пополнения, быстрые выплаты, игры и поддержка 24/7. Играй онлайн или в Telegram." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#0A0B10" />
+  <meta name="color-scheme" content="dark" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Lucky Bear Casino — бонусы до 360% + фриспины" />
+  <meta property="og:description" content="Официальный вход, бонусы, быстрые выплаты и игры. Сайт + Telegram." />
+  <meta property="og:image" content="images/fon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="images/favlogo.png" sizes="any" />
+
+  <style>
+    @font-face {
+      font-family: 'Widocktrial';
+      src: url('fonts/Widocktrialbold.woff2') format('woff2'),
+           url('fonts/Widocktrialbold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FindSansPro';
+      src: url('fonts/FindSansPro-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --bg0:#07080c;
+      --bg1:#0a0b10;
+      --text:#f6f7ff;
+      --muted: rgba(246,247,255,.72);
+
+      --blue:#2b86f0;
+      --blue2:#6aa8ff;
+      --cyan:#29f1ff;
+      --violet:#7c3aed;
+
+      --shadow: 0 30px 80px rgba(0,0,0,.55);
+      --shadow2: 0 12px 40px rgba(0,0,0,.35);
+
+      --font-h: 'Widocktrial', system-ui, sans-serif;
+      --font-b: 'FindSansPro', system-ui, sans-serif;
+
+      --container: 1200px;
+
+      /* useful for mobile tap targets */
+      --tap: 44px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: var(--font-b);
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(43,134,240,.20), transparent 60%),
+                  radial-gradient(1000px 600px at 85% 10%, rgba(124,58,237,.18), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+      position:relative;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Make anchors not hide behind sticky header */
+    section, footer { scroll-margin-top: 96px; }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:url('images/fon.png');
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+      filter: blur(12px) saturate(1.05);
+      opacity:.35;
+      z-index:-4;
+      transform: scale(1.08);
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity:.10;
+      z-index:-3;
+      pointer-events:none;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width:100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1,h2,h3{
+      font-family: var(--font-h);
+      text-transform:uppercase;
+      letter-spacing:.02em;
+      margin:0;
+    }
+
+    .aurora{
+      position:fixed;
+      inset:-20%;
+      z-index:-2;
+      pointer-events:none;
+      filter: blur(40px);
+      opacity:.75;
+      transform: translate3d(var(--mx,0px), var(--my,0px), 0);
+      transition: transform .25s ease;
+    }
+    .blob{
+      position:absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(43,134,240,.75), transparent 55%),
+                  radial-gradient(circle at 70% 60%, rgba(41,241,255,.55), transparent 55%),
+                  radial-gradient(circle at 40% 70%, rgba(124,58,237,.55), transparent 60%);
+      opacity:.55;
+      animation: float 14s ease-in-out infinite;
+    }
+    .blob.b2{
+      width: 620px; height: 620px;
+      left: 60%;
+      top: 10%;
+      opacity:.45;
+      animation-duration: 18s;
+      animation-direction: reverse;
+      background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.70), transparent 55%),
+                  radial-gradient(circle at 70% 55%, rgba(43,134,240,.55), transparent 60%),
+                  radial-gradient(circle at 40% 75%, rgba(41,241,255,.40), transparent 60%);
+    }
+    .blob.b3{
+      width: 560px; height: 560px;
+      left: -5%;
+      top: 55%;
+      opacity:.40;
+      animation-duration: 16s;
+      background: radial-gradient(circle at 35% 35%, rgba(41,241,255,.55), transparent 55%),
+                  radial-gradient(circle at 70% 55%, rgba(43,134,240,.50), transparent 60%),
+                  radial-gradient(circle at 45% 75%, rgba(124,58,237,.40), transparent 60%);
+    }
+    @keyframes float{
+      0%,100%{ transform: translate3d(0,0,0) scale(1); }
+      50%{ transform: translate3d(40px,-35px,0) scale(1.06); }
+    }
+
+    /* ===== Header ===== */
+    .site-header{
+      position:sticky;
+      top: 14px;
+      z-index: 50;
+      padding: 10px 0;
+    }
+    .nav-shell{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .main-nav{
+      width: min(var(--container), calc(100% - 28px));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(10, 12, 18, .55);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(16px);
+      position:relative;
+      overflow:hidden;
+    }
+    .main-nav::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: linear-gradient(90deg, rgba(43,134,240,.35), rgba(124,58,237,.25), rgba(41,241,255,.25));
+      opacity:.35;
+      filter: blur(12px);
+      z-index:-1;
+    }
+    .nav-list{
+      display:flex;
+      list-style:none;
+      padding:0;
+      margin:0;
+      gap: 12px;
+      align-items:center;
+      flex: 1;
+    }
+    .nav-left{ justify-content:flex-end; }
+    .nav-right{ justify-content:flex-start; }
+
+    .nav-list a{
+      font-size: 13px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(246,247,255,.78);
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+      outline:none;
+    }
+    .nav-list a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-1px);
+    }
+    .nav-list a.active{
+      color: var(--text);
+      background: linear-gradient(90deg, rgba(43,134,240,.20), rgba(124,58,237,.12));
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .logo{
+      flex:0 0 auto;
+      padding: 0 8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .logo img{ height: 52px; width:auto; }
+
+    .nav-cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+
+    .btn{
+      position:relative;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      backdrop-filter: blur(12px);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      outline:none;
+      white-space: nowrap;
+      min-height: var(--tap);
+    }
+    .btn svg{ width:18px; height:18px; }
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      background: rgba(255,255,255,.08);
+    }
+    .btn-primary{
+      background: linear-gradient(120deg, rgba(43,134,240,.95), rgba(124,58,237,.78));
+      border-color: rgba(43,134,240,.55);
+      box-shadow: 0 22px 60px rgba(43,134,240,.25);
+    }
+    .btn-primary:hover{
+      box-shadow: 0 30px 80px rgba(43,134,240,.30);
+    }
+
+    /* Premium shine CTA */
+    .btn-shine{
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .btn-shine::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: linear-gradient(115deg,
+        transparent 35%,
+        rgba(255,255,255,.22) 45%,
+        rgba(255,255,255,.10) 50%,
+        transparent 60%);
+      transform: translateX(-40%) rotate(10deg);
+      opacity:0;
+      pointer-events:none;
+    }
+    .btn-shine.shine-on::after{
+      animation: shine 2.6s ease-in-out infinite;
+      opacity:1;
+    }
+    @keyframes shine{
+      0%{ transform: translateX(-55%) rotate(10deg); opacity:0; }
+      12%{ opacity: .9; }
+      35%{ opacity:.25; }
+      60%{ transform: translateX(55%) rotate(10deg); opacity: 0; }
+      100%{ transform: translateX(55%) rotate(10deg); opacity: 0; }
+    }
+
+    /* Mobile menu button */
+    .nav-toggle{
+      display:none;
+      width: var(--tap);
+      height: var(--tap);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.18);
+      color: rgba(246,247,255,.92);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .nav-toggle:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .nav-toggle svg{ width: 20px; height: 20px; }
+
+    /* Mobile dropdown inside nav */
+    .mobile-menu{
+      display:none;
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(14px);
+    }
+    .mobile-menu a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: rgba(246,247,255,.86);
+    }
+    .mobile-menu a:hover{ background: rgba(255,255,255,.06); }
+
+    .main-nav.is-open{
+      border-radius: 26px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .main-nav.is-open .mobile-menu{ display:block; }
+
+    /* ===== Hero ===== */
+    .hero{ padding: 56px 0 18px; }
+    .hero-wrap{
+      position:relative;
+      border-radius: clamp(22px, 3vw, 34px);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(43,134,240,.18), transparent 55%),
+        radial-gradient(900px 520px at 85% 20%, rgba(124,58,237,.16), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items:center;
+      padding: clamp(22px, 4vw, 48px);
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(246,247,255,.78);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      width: fit-content;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--cyan), var(--blue));
+      box-shadow: 0 0 0 6px rgba(41,241,255,.12);
+    }
+    .hero-title{
+      margin: 16px 0 12px;
+      line-height: 1.06;
+      font-size: clamp(34px, 4.8vw, 64px);
+    }
+    .hero-title .blue{
+      background: linear-gradient(90deg, var(--blue2), var(--cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(41,241,255,.12);
+    }
+    .hero-title .casino{
+      margin-left: 0;
+      opacity: .95;
+      filter: drop-shadow(0 12px 28px rgba(41,241,255,.10));
+    }
+    .hero-subtitle{
+      display:inline-block;
+      margin-top: 10px;
+      font-size: clamp(20px, 3.0vw, 38px);
+      line-height: 1.03;
+      letter-spacing: .01em;
+      color: rgba(246,247,255,.92);
+    }
+    .hero-lead{
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 56ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap: 14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .hero-panel{
+      border-radius: 24px;
+      padding: 22px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 22px 60px rgba(0,0,0,.35);
+    }
+    .panel-title{
+      font-family: var(--font-h);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: rgba(246,247,255,.92);
+    }
+    .panel-sub{
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+    .stat{
+      border-radius: 18px;
+      padding: 14px 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      position:relative;
+      overflow:hidden;
+    }
+    .stat::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(43,134,240,.25), transparent 55%);
+      transform: rotate(15deg);
+      opacity:.65;
+    }
+    .stat > *{ position:relative; z-index:1; }
+    .stat b{
+      display:block;
+      font-size: 20px;
+      letter-spacing:.04em;
+      font-family: var(--font-h);
+    }
+    .stat span{
+      display:block;
+      margin-top: 6px;
+      font-size: 13px;
+      color: rgba(246,247,255,.72);
+    }
+
+    /* ===== Between hero and games ===== */
+    .between-cta{
+      padding: 16px 0 10px;
+    }
+    .between-cta-buttons{
+      display:flex;
+      justify-content:center;
+      gap: 18px;
+      flex-wrap:wrap;
+    }
+    .between-cta-buttons .btn{
+      padding: 18px 34px;
+      font-size: 14px;
+      letter-spacing: .12em;
+      min-width: 280px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+    }
+    .between-cta-buttons .btn:hover{
+      box-shadow: 0 26px 90px rgba(0,0,0,.32);
+    }
+
+    /* ===== Sections ===== */
+    .section{ padding: 70px 0; position:relative; z-index: 1; }
+    .section-title{
+      text-align:center;
+      font-size: clamp(24px, 3.2vw, 44px);
+      line-height:1.2;
+      margin-bottom: 18px;
+    }
+    .section-title .accent{
+      background: linear-gradient(90deg, var(--blue2), var(--cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+    .section-subtitle{
+      text-align:center;
+      max-width: 72ch;
+      margin: 0 auto 36px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+      padding: 0 6px;
+    }
+
+    .reveal{
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* ===== Games carousel ===== */
+    .games-shell{
+      border-radius: clamp(22px, 3vw, 34px);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      backdrop-filter: blur(14px);
+    }
+    .games-top{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      padding: 22px 22px 12px;
+    }
+    .games-top h2{ font-size: 26px; }
+    .games-top p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 60ch;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .carousel{ position:relative; padding: 14px 0 24px; }
+    .track{
+      display:flex;
+      gap: 16px;
+      padding: 10px 18px;
+      overflow-x:auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width:none;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      scroll-behavior: smooth;
+      touch-action: pan-x;
+    }
+    .track::-webkit-scrollbar{ display:none; }
+    .track.dragging{ cursor: grabbing; }
+
+    .fade-edges{
+      pointer-events:none;
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, rgba(7,8,12,1), rgba(7,8,12,0) 12%,
+                                rgba(7,8,12,0) 88%, rgba(7,8,12,1));
+      opacity:.45;
+    }
+
+    .game-card{
+      scroll-snap-align: center;
+      flex: 0 0 auto;
+      width: clamp(220px, 26vw, 320px);
+      aspect-ratio: 1 / 1;
+      border-radius: 26px;
+      overflow:hidden;
+      position:relative;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+
+      --s: 1;
+      --hoverLift: 0;
+      transform: scale(var(--s)) translateY(calc(-1px * var(--hoverLift)));
+      filter: blur(var(--blur, 0px));
+      opacity: var(--op, 1);
+
+      transition:
+        transform .45s cubic-bezier(.2,.9,.2,1),
+        filter .45s ease,
+        opacity .45s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+      will-change: transform, filter, opacity;
+      transform-origin: center center;
+    }
+
+    .track.dragging .game-card{
+      filter: blur(calc(var(--blur, 0px) + 1px)) saturate(0.95);
+    }
+
+    .game-card:hover{
+      --hoverLift: 4;
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 26px 70px rgba(0,0,0,.45);
+      z-index: 2;
+    }
+
+    .game-card img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform .6s ease;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .game-card::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(900px 220px at 50% 120%, rgba(43,134,240,.28), transparent 55%),
+                  linear-gradient(180deg, transparent 35%, rgba(0,0,0,.45));
+      opacity:.75;
+      pointer-events:none;
+      transition: opacity .5s ease;
+    }
+    .game-card:hover img{ transform: scale(1.10); }
+    .game-card:hover::after{ opacity:.90; }
+
+    .game-label{
+      position:absolute;
+      left: 16px;
+      bottom: 16px;
+      right: 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      z-index:2;
+    }
+    .pill{
+      font-size: 12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color: rgba(246,247,255,.88);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      min-height: 34px;
+      display:flex;
+      align-items:center;
+    }
+    .mini{
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+
+    /* ===== Bonuses ===== */
+    .bonus-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 18px;
+      align-items:stretch;
+    }
+
+    .bonus-card{
+      position:relative;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      min-height: 240px;
+    }
+    .bonus-card:hover{
+      border-color: rgba(43,134,240,.35);
+      box-shadow: 0 26px 80px rgba(43,134,240,.12), 0 20px 60px rgba(0,0,0,.50);
+    }
+
+    .bonus-bg{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(500px 240px at 20% 10%, rgba(43,134,240,.25), transparent 55%),
+        radial-gradient(500px 240px at 80% 15%, rgba(124,58,237,.16), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      filter: saturate(1.05);
+    }
+    .bonus-card.blue .bonus-bg{
+      background:
+        radial-gradient(500px 240px at 20% 10%, rgba(43,134,240,.32), transparent 55%),
+        radial-gradient(500px 240px at 80% 15%, rgba(41,241,255,.16), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+    .bonus-card::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at var(--px,50%) var(--py,50%), rgba(41,241,255,.14), transparent 60%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events:none;
+    }
+    .bonus-card:hover::after{ opacity: 1; }
+
+    .bonus-inner{
+      position:relative;
+      z-index:2;
+      padding: 22px 18px;
+      height: 100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      justify-content:center;
+      gap: 12px;
+      backdrop-filter: blur(16px);
+    }
+
+    .bonus-icon{
+      width: 62px;
+      height: 62px;
+      display:grid;
+      place-items:center;
+      border-radius: 20px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .bonus-icon img{
+      width: 44px; height: 44px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
+      transition: transform .45s ease;
+    }
+    .bonus-card:hover .bonus-icon img{ transform: rotate(-6deg) scale(1.06); }
+
+    .bonus-title{ font-size: 22px; letter-spacing: .06em; }
+    .bonus-amount{
+      font-family: var(--font-h);
+      font-size: 34px;
+      line-height:1;
+      background: linear-gradient(90deg, var(--blue2), var(--cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(41,241,255,.12);
+    }
+    .bonus-sub{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 24ch;
+    }
+
+    .bonus-card.locked .bonus-amount,
+    .bonus-card.locked .bonus-sub{
+      filter: blur(10px);
+      opacity:.55;
+      transition: filter .35s ease, opacity .35s ease;
+    }
+    .bonus-card.locked:hover .bonus-amount,
+    .bonus-card.locked:hover .bonus-sub{
+      filter: blur(0);
+      opacity:1;
+    }
+
+    .bonus-actions{ display:flex; justify-content:center; margin-top: 26px; }
+
+    /* ===== Features ===== */
+    .features-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .feature-card{
+      border-radius: 24px;
+      padding: 22px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .feature-card::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(43,134,240,.16), transparent 60%);
+      opacity:.65;
+      transform: rotate(10deg);
+      pointer-events:none;
+    }
+    .feature-card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(43,134,240,.30);
+      box-shadow: 0 26px 80px rgba(43,134,240,.10), 0 18px 55px rgba(0,0,0,.45);
+    }
+    .feature-head{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      margin-bottom: 12px;
+      position:relative;
+      z-index:1;
+    }
+    .ic{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.12);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+    }
+    .ic img{ width: 26px; height: 26px; object-fit: contain; }
+    .feature-card h3{ font-size: 18px; color: rgba(246,247,255,.92); }
+    .feature-card p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+      position:relative;
+      z-index:1;
+    }
+
+    /* ===== Footer (like screenshot) ===== */
+    .footer{
+      padding: 60px 0 34px;
+      background: rgba(0,0,0,.22);
+      border-top: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(16px);
+      position: relative;
+      z-index: 1;
+    }
+    .footer-center{
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-logo img{
+      height: 44px;
+      width: auto;
+      margin: 0 auto 16px;
+      opacity: .95;
+    }
+    .footer-responsible{
+      margin: 0 0 18px;
+      font-size: 14px;
+      color: rgba(246,247,255,.72);
+      padding: 0 10px;
+    }
+    .footer-menu{
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .footer-menu a{
+      font-family: var(--font-h);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(246,247,255,.92);
+      padding: 10px 8px;
+      border-radius: 999px;
+      transition: transform .2s ease, background .2s ease;
+      min-height: var(--tap);
+      display:flex;
+      align-items:center;
+    }
+    .footer-menu a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+    }
+    .footer-divider{
+      width: 100%;
+      max-width: 980px;
+      height: 1px;
+      border: 0;
+      background: rgba(255,255,255,.10);
+      margin: 18px 0 22px;
+    }
+    .footer-seo-block{
+      width: 100%;
+      max-width: 1100px;
+      text-align: left;
+      font-size: 12px;
+      line-height: 1.7;
+      color: rgba(246,247,255,.62);
+      padding: 0 10px;
+    }
+    .footer-seo-block strong{
+      color: rgba(246,247,255,.75);
+    }
+    .footer-copy{
+      margin-top: 26px;
+      font-size: 13px;
+      color: rgba(246,247,255,.70);
+      padding: 0 10px;
+    }
+
+    /* ===== Modal ===== */
+    .modal-overlay{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(10px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      opacity:0;
+      visibility:hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+      z-index: 1000;
+    }
+    .modal-overlay.show{
+      opacity:1;
+      visibility:visible;
+    }
+    .modal{
+      width: min(440px, 100%);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: 0 40px 120px rgba(0,0,0,.65);
+      overflow:hidden;
+      transform: translateY(12px) scale(.98);
+      transition: transform .35s cubic-bezier(.2,.9,.2,1);
+      position:relative;
+      outline:none;
+      isolation:isolate;
+    }
+    .modal-overlay.show .modal{
+      transform: translateY(0) scale(1);
+    }
+    .modal::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 40% 20%, rgba(43,134,240,.26), transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(124,58,237,.18), transparent 60%);
+      filter: blur(16px);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .modal-inner{
+      position:relative;
+      z-index:2;
+      padding: 26px 22px 22px;
+      text-align:center;
+    }
+    .modal-close{
+      position:absolute;
+      right: 14px;
+      top: 12px;
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: rgba(246,247,255,.82);
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      transition: transform .2s ease, background .2s ease;
+      z-index:3;
+    }
+    .modal-close:hover{
+      transform: scale(1.05);
+      background: rgba(255,255,255,.08);
+    }
+    .modal-logo{
+      height: 60px;
+      width:auto;
+      margin: 0 auto 12px;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,.35));
+    }
+    .modal-title{
+      font-family: var(--font-h);
+      font-size: 26px;
+      line-height:1.15;
+      margin: 0 0 14px;
+      text-transform: uppercase;
+    }
+    .modal-title span{
+      display:block;
+      margin-top: 10px;
+      font-size: 36px;
+      background: linear-gradient(90deg, var(--blue2), var(--cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(41,241,255,.14);
+    }
+    .modal-sub{
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .modal-actions{
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    body.modal-open header,
+    body.modal-open main,
+    body.modal-open footer {
+      filter: blur(10px) saturate(.9) brightness(.85);
+      pointer-events: none;
+      user-select: none;
+    }
+    body.modal-open{ overflow:hidden; }
+
+    .confetti-canvas{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:1;
+      opacity:.9;
+      mix-blend-mode: screen;
+    }
+
+    /* ===== Responsive ===== */
+
+    @media (max-width: 980px){
+      .nav-list{ display:none; }
+      .nav-toggle{ display:inline-flex; }
+      .main-nav{ justify-content:space-between; }
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-panel{ order: 2; }
+    }
+
+    @media (max-width: 860px){
+      .bonus-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .features-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .section{ padding: 56px 0; }
+    }
+
+    @media (max-width: 560px){
+      .container{ padding: 0 14px; }
+
+      /* reduce heavy effects on phones a bit */
+      body::before{ filter: blur(10px) saturate(1.02); opacity:.30; }
+      .aurora{ filter: blur(34px); opacity:.60; }
+
+      .site-header{ top: 10px; padding: 8px 0; }
+      section, footer { scroll-margin-top: 88px; }
+
+      .main-nav{
+        width: calc(100% - 18px);
+        padding: 10px 10px;
+        gap: 10px;
+      }
+      .logo img{ height: 46px; }
+      .btn{ width: auto; padding: 12px 14px; }
+      .nav-cta .btn svg{ display:none; } /* на маленьких — чище */
+
+      .hero{ padding: 34px 0 10px; }
+      .hero-grid{ padding: 18px; gap: 16px; }
+      .kicker{ font-size: 11px; letter-spacing: .10em; padding: 8px 12px; }
+      .hero-title{ margin: 12px 0 10px; }
+      .hero-title .casino{ margin-left: 8px; }
+      .hero-subtitle{
+        font-size: 24px;     /* именно как ты просил: меньше */
+        line-height: 1.05;
+      }
+      .hero-lead{ font-size: 14px; margin-bottom: 16px; }
+      .hero-actions{ gap: 10px; }
+      .hero-actions .btn{ width: 100%; }
+
+      .hero-panel{ padding: 16px; border-radius: 20px; }
+      .panel-title{ font-size: 16px; }
+      .panel-sub{ font-size: 14px; margin-bottom: 12px; }
+      .stat{ padding: 12px; border-radius: 16px; }
+      .stat b{ font-size: 18px; }
+      .stat span{ font-size: 12px; }
+
+      .between-cta{ padding: 12px 0 6px; }
+      .between-cta-buttons{ gap: 12px; }
+      .between-cta-buttons .btn{
+        width: 100%;
+        min-width: 0;
+        padding: 16px 18px;
+      }
+
+      .games-top{ padding: 16px 16px 10px; }
+      .games-top h2{ font-size: 22px; }
+      .games-top p{ font-size: 13px; }
+      .track{ padding: 10px 12px; gap: 12px; }
+      .game-card{
+        width: clamp(230px, 78vw, 320px); /* реально удобно для мобилы */
+        border-radius: 22px;
+      }
+      .game-label{ left: 12px; right: 12px; bottom: 12px; }
+      .pill{ font-size: 11px; padding: 8px 10px; }
+
+      .bonus-grid{ grid-template-columns: 1fr; }
+      .bonus-card{ min-height: 220px; border-radius: 20px; }
+      .bonus-inner{ padding: 18px 14px; }
+      .bonus-amount{ font-size: 30px; }
+      .bonus-title{ font-size: 20px; }
+      .bonus-actions .btn{ width: 100%; }
+
+      .features-grid{ grid-template-columns: 1fr; }
+      .feature-card{ border-radius: 20px; padding: 18px; }
+
+      .footer{ padding: 44px 0 26px; }
+      .footer-menu{ gap: 14px; }
+      .footer-menu a{ padding: 10px 10px; }
+      .footer-seo-block{ font-size: 12px; text-align: left; }
+
+      /* Modal on small phones */
+      .modal{ border-radius: 22px; }
+      .modal-inner{ padding: 22px 16px 18px; }
+      .modal-logo{ height: 52px; }
+      .modal-title{ font-size: 22px; }
+      .modal-title span{ font-size: 32px; }
+      .modal-actions .btn{ width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .blob, .reveal, .btn, .bonus-card, .game-card img, .aurora { animation:none !important; transition:none !important; }
+      .btn-shine::after{ display:none !important; }
+      .track{ scroll-behavior:auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="aurora" aria-hidden="true">
+    <div class="blob b1" style="left:12%; top:10%;"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <nav class="main-nav" aria-label="Основная навигация" id="mainNav">
+        <ul class="nav-list nav-left" aria-label="Разделы слева">
+          <li><a href="#games" data-link>Игры</a></li>
+          <li><a href="#bonuses" data-link>Бонусы</a></li>
+        </ul>
+
+        <a class="logo" href="#top" aria-label="Lucky Bear — на главную">
+          <img src="images/logo-full.png" alt="Lucky Bear Logo" />
+        </a>
+
+        <ul class="nav-list nav-right" aria-label="Разделы справа">
+          <li><a href="#features" data-link>Преимущества</a></li>
+          <li><a href="#about" data-link>О нас</a></li>
+        </ul>
+
+        <!-- Mobile toggle -->
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" id="navToggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+
+        <div class="nav-cta">
+          <a class="btn" href="https://t.me/A_AstraAgent_Bot/app?startapp=bXN0PTB4MzlkNGYwNmEmbT1JTElBJmM9c2VvYmVhcg" rel="nofollow">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21.7 4.3 2.9 11.6c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.5-1.7-1.2-1.3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+            TG
+          </a>
+          <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5V7.4c0-1 .8-1.9 1.9-1.9h12.2c1 0 1.9.8 1.9 1.9v9.2c0 1-.8 1.9-1.9 1.9H8.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M4 12.5h7.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Играть
+          </a>
+        </div>
+
+        <!-- Mobile dropdown links -->
+        <div class="mobile-menu" id="mobileMenu" aria-label="Мобильное меню">
+          <a href="#games">Игры</a>
+          <a href="#bonuses">Бонусы</a>
+          <a href="#features">Преимущества</a>
+          <a href="#about">О нас</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-wrap reveal">
+          <div class="hero-grid">
+            <div>
+              <div class="kicker"><span class="dot" aria-hidden="true"></span> бонусы + фриспины • вход за 1 минуту</div>
+
+              <h1 class="hero-title">
+                <span class="blue">LUCKY BEAR</span>
+                <span class="blue casino">CASINO🧸</span><br/>
+                <span class="hero-subtitle">твоя берлога<br/>крупных выигрышей</span>
+              </h1>
+
+              <p class="hero-lead">
+                Удобный интерфейс, быстрые выплаты и доступ в один клик. Забирай бонусы и выбирай где играть — на сайте либо прямо в Telegram.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Забрать бонус</a>
+                <button class="btn" type="button" data-open-modal>Показать подарок</button>
+              </div>
+            </div>
+
+            <aside class="hero-panel">
+              <div class="panel-title">Почему выбирают нас</div>
+              <p class="panel-sub">Минимум лишних шагов: вход → бонус → игра. Всё в одном месте, с поддержкой 24/7.</p>
+              <div class="stats" role="list">
+                <div class="stat" role="listitem"><b>до 360%</b><span>буст на пополнения</span></div>
+                <div class="stat" role="listitem"><b>FS пакеты</b><span>для новичков</span></div>
+                <div class="stat" role="listitem"><b>24/7</b><span>поддержка</span></div>
+                <div class="stat" role="listitem"><b>RTP 98%</b><span>лучшее на рынке</span></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="between-cta" aria-label="Быстрый выбор платформы">
+      <div class="container">
+        <div class="between-cta-buttons reveal">
+          <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Играть на сайте</a>
+          <a class="btn" href="https://t.me/A_AstraAgent_Bot/app?startapp=bXN0PTB4MzlkNGYwNmEmbT1JTElBJmM9c2VvYmVhcg" rel="nofollow">Играть в TG</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMES -->
+    <section class="section" id="games">
+      <div class="container">
+        <div class="games-shell reveal">
+          <div class="games-top">
+            <div>
+              <h2 class="section-title" style="text-align:left; margin:0;">
+                Найди <span class="accent">свою</span> игру
+              </h2>
+              <p>Во что играют прямо сейчас:</p>
+            </div>
+          </div>
+
+          <div class="carousel">
+            <div class="fade-edges" aria-hidden="true"></div>
+
+            <div class="track" data-track aria-label="Слайдер игр">
+              <article class="game-card"><img src="images/game1.png" alt="Игра 1"><div class="game-label"><span class="pill">Игра 1</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game2.png" alt="Игра 2"><div class="game-label"><span class="pill">Игра 2</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game3.png" alt="Игра 3"><div class="game-label"><span class="pill">Игра 3</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game4.png" alt="Игра 4"><div class="game-label"><span class="pill">Игра 4</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game5.png" alt="Игра 5"><div class="game-label"><span class="pill">Игра 5</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game6.png" alt="Игра 6"><div class="game-label"><span class="pill">Игра 6</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game7.png" alt="Игра 7"><div class="game-label"><span class="pill">Игра 7</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game8.png" alt="Игра 8"><div class="game-label"><span class="pill">Игра 8</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game9.png" alt="Игра 9"><div class="game-label"><span class="pill">Игра 9</span><span class="mini" aria-hidden="true">→</span></div></article>
+              <article class="game-card"><img src="images/game10.png" alt="Игра 10"><div class="game-label"><span class="pill">Игра 10</span><span class="mini" aria-hidden="true">→</span></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BONUSES -->
+    <section class="section" id="bonuses">
+      <div class="container">
+        <h2 class="section-title reveal">Забирай <span class="accent">бонусы</span> на пополнения</h2>
+        <p class="section-subtitle reveal">Нажми на карточку, чтобы посмотреть полностью</p>
+
+        <div class="bonus-grid">
+          <article class="bonus-card blue reveal" data-tilt>
+            <div class="bonus-bg" aria-hidden="true"></div>
+            <div class="bonus-inner">
+              <div class="bonus-icon"><img src="images/boxo.png" alt="" aria-hidden="true"></div>
+              <div class="bonus-title">Бонус</div>
+              <div class="bonus-amount">до 360%</div>
+              <div class="bonus-sub">на 1 пополнение</div>
+            </div>
+          </article>
+
+          <article class="bonus-card locked reveal" data-tilt>
+            <div class="bonus-bg" aria-hidden="true"></div>
+            <div class="bonus-inner">
+              <div class="bonus-icon"><img src="images/boxc.png" alt="" aria-hidden="true"></div>
+              <div class="bonus-title">Бонус</div>
+              <div class="bonus-amount">до 360%</div>
+              <div class="bonus-sub">на 2 пополнение</div>
+            </div>
+          </article>
+
+          <article class="bonus-card locked reveal" data-tilt>
+            <div class="bonus-bg" aria-hidden="true"></div>
+            <div class="bonus-inner">
+              <div class="bonus-icon"><img src="images/boxc.png" alt="" aria-hidden="true"></div>
+              <div class="bonus-title">Бонус</div>
+              <div class="bonus-amount">до 360% + 50 FS</div>
+              <div class="bonus-sub">на 3 пополнение</div>
+            </div>
+          </article>
+
+          <article class="bonus-card locked reveal" data-tilt>
+            <div class="bonus-bg" aria-hidden="true"></div>
+            <div class="bonus-inner">
+              <div class="bonus-icon"><img src="images/boxc.png" alt="" aria-hidden="true"></div>
+              <div class="bonus-title">Бонус</div>
+              <div class="bonus-amount">до 360% + 200 FS</div>
+              <div class="bonus-sub">на 4 пополнение</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="bonus-actions reveal">
+          <a class="btn btn-primary" href="https://lbgame777.xyz/0xsfvT">Забрать бонус</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <h2 class="section-title reveal">Почему игроки <span class="accent">выбирают</span> нас</h2>
+        <p class="section-subtitle reveal"></p>
+
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <div class="feature-head"><div class="ic"><img src="images/icon-payouts.png" alt=""></div><h3>Быстрые выплаты</h3></div>
+            <p>Моментальное пополнение и быстрый вывод без лишних задержек и комиссий.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-head"><div class="ic"><img src="images/icon-support.png" alt=""></div><h3>Поддержка 24/7</h3></div>
+            <p>На связи круглосуточно: поможем с любым вопросом — быстро и по делу.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-head"><div class="ic"><img src="images/icon-games.png" alt=""></div><h3>Большой выбор игр</h3></div>
+            <p>Слоты и лайв-игры от топ-провайдеров — под любое настроение.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-head"><div class="ic"><img src="images/icon-bonus.png" alt=""></div><h3>Щедрые бонусы</h3></div>
+            <p>Приветственные пакеты, регулярные акции и кэшбек для игроков.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-head"><div class="ic"><img src="images/icon-security.png" alt=""></div><h3>Защита данных</h3></div>
+            <p>Шифрование и контроль безопасности: приватность и защита транзакций.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-head"><div class="ic"><img src="images/icon-mobile.png" alt=""></div><h3>Мобильная версия</h3></div>
+            <p>Идеально выглядит на телефонах: быстрый доступ где угодно.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="about">
+    <div class="container footer-center">
+      <a class="footer-logo" href="https://lbgame777.xyz/0xsfvT" aria-label="LuckyBear">
+        <img src="images/logo.png" alt="Lucky Bear Logo">
+      </a>
+
+      <p class="footer-responsible">Играйте ответственно, только для лиц старше 18 лет</p>
+
+      <nav class="footer-menu" aria-label="Навигация в подвале">
+        <a href="https://lbgame777.xyz/0xsfvT">VIP-КАЗИНО</a>
+        <a href="https://lbgame777.xyz/0xsfvT">СЛОТЫ</a>
+        <a href="https://lbgame777.xyz/0xsfvT">БОНУСЫ</a>
+        <a href="https://lbgame777.xyz/0xsfvT">О НАС</a>
+      </nav>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-seo-block">
+        <strong>Популярные запросы:</strong>
+        казино лаки бир, лаки бир, lucky bear casino, лаки бир официальный сайт, лаки бир вход,
+        lucky bear официальный сайт, казино lucky bear, лаки бир регистрация, lucky bear вход,
+        лаки бир сайт, laki bir, лаки бир играть онлайн, lucky bear играть, лаки бир зеркало,
+        lucky bear зеркало рабочее, лаки бир бонусы, lucky bear casino регистрация, игровые автоматы лаки бир,
+        слоты lucky bear, мобильная версия лаки бир, скачать lucky bear, промокоды лаки бир,
+        lucky bear casino bonuses, промокод на лаки бир, бонус код lucky bear, lucky bear free spins,
+        lucky bear отзывы, казино лаки бир зеркало, lucky bear online casino, лаки бир рабочее зеркало.
+      </div>
+
+      <div class="footer-copy">© 2025 LuckyBear Casino (Лаки Бир). Все права защищены.</div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="promoModal" role="dialog" aria-modal="true" aria-labelledby="promoTitle" aria-hidden="true">
+    <div class="modal" tabindex="-1">
+      <canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true"></canvas>
+
+      <button class="modal-close" type="button" aria-label="Закрыть" data-close-modal>✕</button>
+      <div class="modal-inner">
+        <img class="modal-logo" src="images/logo-full.png" alt="Lucky Bear Logo">
+        <h2 class="modal-title" id="promoTitle">Вам доступно 80 <span> фриспинов</span></h2>
+        <p class="modal-sub">Нажми «Забрать», чтобы перейти на страницу активации бонуса.</p>
+        <div class="modal-actions">
+          <a class="btn btn-primary btn-shine" id="claimBtn" href="https://lbgame777.xyz/0xsfvT">Забрать</a>
+          <button class="btn" type="button" data-close-modal>Позже</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const nav = document.getElementById('mainNav');
+      const toggle = document.getElementById('navToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if(!nav || !toggle || !mobileMenu) return;
+
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click', () => nav.classList.remove('is-open'));
+      });
+
+      // close on outside tap (mobile)
+      document.addEventListener('click', (e)=>{
+        if(!nav.classList.contains('is-open')) return;
+        if(nav.contains(e.target)) return;
+        nav.classList.remove('is-open');
+      }, {passive:true});
+    })();
+
+    // Parallax aurora follow
+    (function(){
+      const aurora = document.querySelector('.aurora');
+      if(!aurora) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+
+      let mx = 0, my = 0, tx = 0, ty = 0;
+      window.addEventListener('mousemove', (e)=>{
+        const x = (e.clientX / window.innerWidth - 0.5) * 24;
+        const y = (e.clientY / window.innerHeight - 0.5) * 24;
+        tx = x; ty = y;
+      }, {passive:true});
+
+      function raf(){
+        mx += (tx - mx) * 0.08;
+        my += (ty - my) * 0.08;
+        aurora.style.setProperty('--mx', mx.toFixed(2) + 'px');
+        aurora.style.setProperty('--my', my.toFixed(2) + 'px');
+        requestAnimationFrame(raf);
+      }
+      raf();
+    })();
+
+    // Reveal on scroll
+    (function(){
+      const items = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, {threshold: 0.12});
+      items.forEach(i=>io.observe(i));
+    })();
+
+    // Active nav link by scroll
+    (function(){
+      const links = document.querySelectorAll('[data-link]');
+      const sections = ['games','bonuses','features','about']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      function setActive(id){
+        links.forEach(a=>{
+          const href = a.getAttribute('href') || '';
+          a.classList.toggle('active', href.endsWith('#'+id));
+        });
+      }
+
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) setActive(e.target.id);
+        });
+      }, {rootMargin:'-45% 0px -50% 0px', threshold: 0.01});
+
+      sections.forEach(s=>io.observe(s));
+    })();
+
+    // Magnetic buttons
+    (function(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce) return;
+
+      const btns = document.querySelectorAll('.btn');
+      btns.forEach(btn=>{
+        btn.addEventListener('mousemove', (e)=>{
+          const r = btn.getBoundingClientRect();
+          const dx = e.clientX - (r.left + r.width/2);
+          const dy = e.clientY - (r.top + r.height/2);
+          btn.style.transform = `translate(${dx*0.08}px, ${dy*0.08}px) translateY(-2px)`;
+        });
+        btn.addEventListener('mouseleave', ()=>{
+          btn.style.transform = '';
+        });
+      });
+    })();
+
+    // Tilt for bonus cards
+    (function(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce) return;
+
+      const cards = document.querySelectorAll('[data-tilt]');
+      cards.forEach(card=>{
+        card.addEventListener('mousemove', (e)=>{
+          const r = card.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width) * 100;
+          const y = ((e.clientY - r.top) / r.height) * 100;
+
+          const rx = (y - 50) * -0.10;
+          const ry = (x - 50) * 0.12;
+
+          card.style.setProperty('--px', x.toFixed(2) + '%');
+          card.style.setProperty('--py', y.toFixed(2) + '%');
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+        });
+        card.addEventListener('mouseleave', ()=>{
+          card.style.transform = '';
+        });
+      });
+    })();
+
+    // ✅ GAMES carousel: infinite loop + step autoplay + drag (fixed, no jumping)
+    (function(){
+      const track = document.querySelector('[data-track]');
+      if(!track) return;
+
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const originals = Array.from(track.children);
+      if (originals.length < 2) return;
+
+      const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
+
+      const setScrollBehavior = (value) => {
+        track.style.scrollBehavior = value;
+      };
+
+      const getCardStep = () => {
+        const first = track.querySelector('.game-card');
+        if(!first) return 0;
+        return first.getBoundingClientRect().width + gap;
+      };
+
+      const measureSetWidth = (els) => {
+        let sum = 0;
+        els.forEach((el, i) => {
+          sum += el.getBoundingClientRect().width;
+          if (i !== els.length - 1) sum += gap;
+        });
+        return sum;
+      };
+
+      function buildClones(){
+        if (track.dataset.loopBuilt === "1") return;
+        originals.forEach(el => track.appendChild(el.cloneNode(true)));
+        originals.slice().reverse().forEach(el => track.insertBefore(el.cloneNode(true), track.firstChild));
+        track.dataset.loopBuilt = "1";
+      }
+
+      buildClones();
+
+      let setWidth = 0;
+      let step = 0;
+
+      function resetMeasurements(){
+        setWidth = measureSetWidth(originals);
+        step = getCardStep();
+      }
+
+      resetMeasurements();
+
+      requestAnimationFrame(() => {
+        setScrollBehavior('auto');
+        track.scrollLeft = setWidth;
+        requestAnimationFrame(() => setScrollBehavior('smooth'));
+      });
+
+      let isCorrecting = false;
+
+      function correctIfNeeded(){
+        if(isCorrecting) return;
+
+        const leftEdge  = setWidth * 0.25;
+        const rightEdge = setWidth * 1.75;
+
+        if (track.scrollLeft < leftEdge) {
+          isCorrecting = true;
+          setScrollBehavior('auto');
+          track.scrollLeft += setWidth;
+          requestAnimationFrame(() => {
+            setScrollBehavior('smooth');
+            isCorrecting = false;
+          });
+        } else if (track.scrollLeft > rightEdge) {
+          isCorrecting = true;
+          setScrollBehavior('auto');
+          track.scrollLeft -= setWidth;
+          requestAnimationFrame(() => {
+            setScrollBehavior('smooth');
+            isCorrecting = false;
+          });
+        }
+      }
+
+      // Drag / swipe
+      let isDown = false;
+      let startX = 0;
+      let startScroll = 0;
+
+      let timer = null;
+      function stopAuto(){ if(timer){ clearInterval(timer); timer = null; } }
+      function startAuto(){ if(reduce || timer) return; timer = setInterval(next, 3000); }
+
+      track.addEventListener('pointerdown', (e)=>{
+        isDown = true;
+        stopAuto();
+        track.classList.add('dragging');
+        track.setPointerCapture(e.pointerId);
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+      });
+
+      track.addEventListener('pointermove', (e)=>{
+        if(!isDown) return;
+        const dx = (e.clientX - startX) * 1.2;
+        track.scrollLeft = startScroll - dx;
+        correctIfNeeded();
+      });
+
+      function endDrag(){
+        if(!isDown) return;
+        isDown = false;
+        track.classList.remove('dragging');
+
+        if(step > 0){
+          const snapped = Math.round(track.scrollLeft / step) * step;
+          track.scrollTo({ left: snapped, behavior: reduce ? 'auto' : 'smooth' });
+        }
+
+        startAuto();
+      }
+
+      track.addEventListener('pointerup', endDrag);
+      track.addEventListener('pointercancel', endDrag);
+      track.addEventListener('pointerleave', endDrag);
+
+      function next(){
+        if(step <= 0) step = getCardStep();
+        if(step <= 0) return;
+
+        correctIfNeeded();
+        track.scrollTo({ left: track.scrollLeft + step, behavior: reduce ? 'auto' : 'smooth' });
+      }
+
+      track.addEventListener('mouseenter', stopAuto);
+      track.addEventListener('mouseleave', startAuto);
+
+      track.addEventListener('scroll', () => {
+        correctIfNeeded();
+      }, { passive: true });
+
+      window.addEventListener('resize', () => {
+        resetMeasurements();
+        setScrollBehavior('auto');
+        track.scrollLeft = setWidth;
+        requestAnimationFrame(() => setScrollBehavior('smooth'));
+      });
+
+      startAuto();
+    })();
+
+    // MODAL: full focus + confetti + shine (NO SOUND, NO SHAKE)
+    (function(){
+      const overlay = document.getElementById('promoModal');
+      if(!overlay) return;
+
+      const modal = overlay.querySelector('.modal');
+      const openers = document.querySelectorAll('[data-open-modal]');
+      const closers = overlay.querySelectorAll('[data-close-modal]');
+      const claimBtn = document.getElementById('claimBtn');
+
+      let lastFocus = null;
+      let confettiStop = null;
+
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function setBackgroundInert(on){
+        const header = document.querySelector('header');
+        const main = document.querySelector('main');
+        const footer = document.querySelector('footer');
+
+        [header, main, footer].forEach(el=>{
+          if(!el) return;
+          if(on){
+            el.setAttribute('inert', '');
+            el.setAttribute('aria-hidden', 'true');
+          } else {
+            el.removeAttribute('inert');
+            el.removeAttribute('aria-hidden');
+          }
+        });
+      }
+
+      function runConfetti(){
+        const canvas = document.getElementById('confettiCanvas');
+        if(!canvas) return () => {};
+        const ctx = canvas.getContext('2d');
+        if(!ctx) return () => {};
+
+        function resize(){
+          const rect = modal.getBoundingClientRect();
+          canvas.width = Math.floor(rect.width * devicePixelRatio);
+          canvas.height = Math.floor(rect.height * devicePixelRatio);
+          canvas.style.width = rect.width + 'px';
+          canvas.style.height = rect.height + 'px';
+          ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+        }
+        resize();
+
+        const colors = [
+          'rgba(106,168,255,.95)',
+          'rgba(41,241,255,.90)',
+          'rgba(124,58,237,.85)',
+          'rgba(255,255,255,.75)'
+        ];
+
+        const rect = modal.getBoundingClientRect();
+        const cx = rect.width * 0.5;
+        const cy = rect.height * 0.18;
+
+        const particles = [];
+        const count = 90;
+        for(let i=0;i<count;i++){
+          const a = (Math.random() * Math.PI) - (Math.PI/2);
+          const sp = 3 + Math.random()*5;
+          particles.push({
+            x: cx + (Math.random()*30 - 15),
+            y: cy + (Math.random()*10 - 5),
+            vx: Math.cos(a) * sp * (0.6 + Math.random()*0.6),
+            vy: Math.sin(a) * sp * (0.8 + Math.random()*0.8) + 2.2,
+            w: 6 + Math.random()*6,
+            h: 3 + Math.random()*6,
+            rot: Math.random()*Math.PI,
+            vr: (Math.random()*0.18 - 0.09),
+            life: 1,
+            drag: 0.985 + Math.random()*0.01,
+            g: 0.14 + Math.random()*0.08,
+            c: colors[Math.floor(Math.random()*colors.length)]
+          });
+        }
+
+        let running = true;
+        let last = performance.now();
+
+        function tick(t){
+          if(!running) return;
+          const dt = Math.min((t - last) / 16.67, 2);
+          last = t;
+
+          ctx.clearRect(0,0, rect.width, rect.height);
+
+          for(const p of particles){
+            p.vx *= Math.pow(p.drag, dt);
+            p.vy = p.vy * Math.pow(p.drag, dt) + p.g * dt;
+
+            p.x += p.vx * dt;
+            p.y += p.vy * dt;
+            p.rot += p.vr * dt;
+
+            p.life -= 0.012 * dt;
+
+            if(p.life > 0){
+              ctx.save();
+              ctx.globalAlpha = Math.max(p.life, 0);
+              ctx.translate(p.x, p.y);
+              ctx.rotate(p.rot);
+              ctx.fillStyle = p.c;
+              ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+              ctx.restore();
+            }
+          }
+
+          const alive = particles.some(p=>p.life > 0 && p.y < rect.height + 40);
+          if(alive) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+
+        const onResize = ()=> resize();
+        window.addEventListener('resize', onResize);
+
+        return () => {
+          running = false;
+          window.removeEventListener('resize', onResize);
+          ctx.clearRect(0,0, canvas.width, canvas.height);
+        };
+      }
+
+      function openModal(){
+        lastFocus = document.activeElement;
+
+        document.body.classList.add('modal-open');
+        setBackgroundInert(true);
+
+        overlay.classList.add('show');
+        overlay.setAttribute('aria-hidden','false');
+
+        if(claimBtn){
+          claimBtn.classList.add('shine-on');
+        }
+
+        if(!reduce){
+          confettiStop && confettiStop();
+          confettiStop = runConfetti();
+        }
+
+        setTimeout(()=> modal.focus(), 0);
+      }
+
+      function closeModal(){
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden','true');
+
+        document.body.classList.remove('modal-open');
+        setBackgroundInert(false);
+
+        if(claimBtn){
+          claimBtn.classList.remove('shine-on');
+        }
+
+        confettiStop && confettiStop();
+        confettiStop = null;
+
+        if(lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      setTimeout(openModal, 5000);
+
+      openers.forEach(b=> b.addEventListener('click', openModal));
+      closers.forEach(b=> b.addEventListener('click', closeModal));
+
+      overlay.addEventListener('click', (e)=>{
+        if(e.target === overlay) closeModal();
+      });
+
+      window.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && overlay.classList.contains('show')) closeModal();
+      });
+
+      overlay.addEventListener('keydown', (e)=>{
+        if(e.key !== 'Tab') return;
+        const focusable = overlay.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])');
+        const list = Array.from(focusable).filter(el => !el.hasAttribute('disabled'));
+        if(!list.length) return;
+        const first = list[0];
+        const last = list[list.length - 1];
+
+        if(e.shiftKey && document.activeElement === first){
+          e.preventDefault(); last.focus();
+        } else if(!e.shiftKey && document.activeElement === last){
+          e.preventDefault(); first.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
